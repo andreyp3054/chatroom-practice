@@ -11,7 +11,7 @@ data class Message(
         @Id
         @GeneratedValue
         var id: Long = -1,
-        var username: String,
+        var value: String,
         var time: Date
 ) {
     @ManyToOne // a user can have many messages
