@@ -16,7 +16,7 @@ class User(             //note: User is a reserved keyword in postgresql thats w
         var email: String,
         var picture: String
 ) {
-        @ManyToMany  //a chatroom can have many users and users can have many chatrooms
-        var chatrooms: List<Chatroom> = listOf()
+    @ManyToMany  //a chatroom can have many users and users can have many chatrooms
+    var chatrooms: List<Chatroom> = listOf()
 }
 
