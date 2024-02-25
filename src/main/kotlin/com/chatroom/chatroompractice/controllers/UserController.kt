@@ -18,7 +18,7 @@ class UserController {
     @Autowired // makes sure that it injects the instance we created
     lateinit var service: UserService
 
-    @GetMapping("hello")
+    @GetMapping("getAll")
     fun index(): MutableList<User> {
         return service.getAllUsers()
     }
