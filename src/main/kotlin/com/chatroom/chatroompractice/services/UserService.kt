@@ -1,6 +1,6 @@
 package com.chatroom.chatroompractice.services
 
-import com.chatroom.chatroompractice.models.CreateUserRequest
+import com.chatroom.chatroompractice.dto.CreateUserRequest
 import com.chatroom.chatroompractice.models.User
 import com.chatroom.chatroompractice.repositories.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,7 +11,7 @@ class UserService {
 
     @Autowired
     lateinit var userRepository: UserRepository
-    fun getAllEmployees(): MutableList<User> {
+    fun getAllUsers(): MutableList<User> {
         return userRepository.findAll()
     }
 

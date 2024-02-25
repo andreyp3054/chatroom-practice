@@ -1,4 +1,4 @@
-package com.chatroom.chatroompractice.models
+package com.chatroom.chatroompractice.dto
 
 data class CreateUserRequest(
         var username: String,
