@@ -1,5 +1,6 @@
 package com.chatroom.chatroompractice.controllers
 
+import com.chatroom.chatroompractice.dto.MessageResponse
 import com.chatroom.chatroompractice.dto.NewChatRequest
 import com.chatroom.chatroompractice.models.Message
 import com.chatroom.chatroompractice.services.ChatService
@@ -23,9 +24,18 @@ class ChatController {
     }
 
     @GetMapping("messages") //localhost:8080/chat/messages
-    fun getAllMessages(): MutableList<Message> {
-        return chatService.getAllMessages()
+    fun getAllMessages(): List<MessageResponse> {
+        var templist = chatService.getAllMessages()
+        return listConverter(templist)
 
+    }
+
+    fun listConverter(messageList: MutableList<Message>): List<MessageResponse> {
+        var messageResponseList = mutableListOf<MessageResponse>()
+        for (m in messageList) {
+            messageResponseList.add(MessageResponse(message = m.value, userId = m.user.id, chatroomId = m.chatroom.id, time = m.time))
+        }
+        return messageResponseList
     }
 
     @GetMapping("chit")
