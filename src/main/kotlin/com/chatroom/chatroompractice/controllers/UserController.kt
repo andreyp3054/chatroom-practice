@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("users")        //localhost:8080/users
 class UserController {
 
     @Autowired // makes sure that it injects the instance we created
     lateinit var service: UserService
 
-    @GetMapping("getAll")
+    @GetMapping("getAll")   //localhost:8080/users/getAll
     fun index(): MutableList<User> {
         return service.getAllUsers()
     }
@@ -28,7 +28,7 @@ class UserController {
         return "hi"
     }
 
-    @PostMapping("save")
+    @PostMapping("save")   //localhost:8080/users/save
     fun saveUser(@RequestBody user: CreateUserRequest): User {
         return service.saveUser(user)
     }
